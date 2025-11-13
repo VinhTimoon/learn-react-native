@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState<string>("");
@@ -19,7 +19,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View>
         <TextInput
           value={name}
           onChangeText={e => setName(e)}
@@ -34,13 +33,12 @@ export default function App() {
         onPress={() => alert('tap me!!!!!!!!!!!!')}
         />
 
-        <View style={{borderColor: 'black', borderWidth: 2, marginTop: 20, padding: 10}}>
+        <ScrollView style={{borderColor: 'black', borderWidth: 1, marginTop: 20, padding: 10}}>
           {todoList.map(todo => (
             <Text style={styles.todo} key = {todo.id}>{todo.title}</Text>
           ))}
-        </View>
+        </ScrollView>
 
-      </View>
     </View>
   );
 }
